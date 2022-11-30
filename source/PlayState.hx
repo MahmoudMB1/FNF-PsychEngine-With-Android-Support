@@ -194,9 +194,9 @@ class PlayState extends MusicBeatState
 
 	private var healthBarBGOverlay:FlxSprite;
 
-	private var healthMax:FlxSprite;
+
 	public var botplaySine:Float = 0;
-	public var botplayTxt:FlxText;
+	public var botplayTxt:FlxText;bot 
 
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
