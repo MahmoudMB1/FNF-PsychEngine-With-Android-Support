@@ -66,6 +66,21 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
+// Chromatic Aberration I
+public var shader:ChromaticAberration;
+public var chromeOffset:Float = 0;
+public var hasChroma:Bool = true;
+
+// Chromatic Aberration II
+public function addChroma()
+{
+ chromeOffset = 0.002; // You can change this value
+ ShadersHandler.setChrome(chromeOffset);
+
+ camGame.setFilters([ShadersHandler.chromaticAberration]);
+ camHUD.setFilters([ShadersHandler.chromaticAberration]);
+ camOther.setFilters([ShadersHandler.chromaticAberration]);
+
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
@@ -2133,6 +2148,10 @@ class PlayState extends MusicBeatState
 	private var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 	private function generateSong(dataPath:String):Void
 	{
+	
+	           // Chromatic Aberration III
+if (hasChroma) addChroma();
+	
 		// FlxG.log.add(ChartParser.parse());
 		songSpeedType = ClientPrefs.getGameplaySetting('scrolltype','multiplicative');
 
